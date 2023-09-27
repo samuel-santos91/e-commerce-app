@@ -1,15 +1,15 @@
-import { useEffect } from 'react';
-
-import { getAllCandles } from '../../services/candle-service';
+import Header from "../../components/Header/Header";
+import ProductSection from "../../components/ProductSection/ProductSection";
+import Footer from "../../components/Footer/Footer";
 
 const MainPage = () => {
-  useEffect(() => {
-    getAllCandles();
-  }, []);
-
   return (
-    <div>MainPage</div>
-  )
-}
+    <div>
+      <Header />
+      <ProductSection/>
+      <Footer/>
+    </div>
+  );
+};
 
-export default MainPage
+export default MainPage;
