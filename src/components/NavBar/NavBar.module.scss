@@ -1,4 +1,30 @@
+@use "../../styles/partials/variables";
+
 .navbar {
-    display: flex;
-    justify-content: space-between;
+  &__brand {
+    margin: 1rem;
+    font-size: 2rem;
+    color: variables.$colour-pewter;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &:hover {
+      cursor: pointer;
+      color: variables.$colour-gunmetalGrey;
+    }
+  }
+
+  &__cart {
+    margin: 1rem;
+    position: fixed;
+    right: 1rem;
+    width: 2rem;
+    transition: transform 0.2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+  }
 }

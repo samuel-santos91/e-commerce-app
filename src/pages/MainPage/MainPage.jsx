@@ -1,5 +1,5 @@
 import Header from "../../components/Header/Header";
-import ProductSection from "../../components/ProductSection/ProductSection";
+import ProductSection from "../../containers/ProductSection/ProductSection";
 import Footer from "../../components/Footer/Footer";
 
 const MainPage = () => {
