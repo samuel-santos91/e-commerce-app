@@ -1,10 +1,11 @@
 import { createContext, useEffect, useState } from "react";
 
-import { getAllCandles } from "../services/candle-service";
+import { getAllCandles, getCandleById } from "../services/candle-service";
 
 export const CandlesContext = createContext(null);
 
 const ProductsContextProvider = ({ children }) => {
+  const [candle, setCandle] = useState({});
   const [candles, setCandles] = useState([]);
 
   useEffect(() => {
@@ -13,11 +14,25 @@ const ProductsContextProvider = ({ children }) => {
       .catch((e) => console.log(e));
   }, []);
 
+  const singularCandle = (id) => {
+    getCandleById(id)
+      .then((candle) => setCandle(candle))
+      .catch((e) => console.log(e));
+  };
+
   return (
-    <CandlesContext.Provider value={{ candles }}>
+    <CandlesContext.Provider value={{ candle, candles, singularCandle }}>
       {children}
     </CandlesContext.Provider>
   );
 };
 
 export default ProductsContextProvider;
+
+
+
+
+
+
+
+

@@ -1,5 +1,4 @@
 @use "./styles/partials/variables";
-@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
@@ -14,9 +13,10 @@
  html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
-  font-family: 'Courgette', cursive;
+  font-family: variables.$font-brand;
   color: variables.$colour-gunmetalGrey;
   background-color: variables.$colour-cream;
+  scroll-behavior: smooth;
 }
 
 /* Sections
