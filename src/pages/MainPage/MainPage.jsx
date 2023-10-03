@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import Header from "../../components/Header/Header";
 import ProductSection from "../../containers/ProductSection/ProductSection";
-import Footer from "../../components/Footer/Footer";
+import Favourites from "../../components/Favourites/Favourites";
 
 const MainPage = () => {
   const [scroll, setScroll] = useState(false)
@@ -14,7 +14,7 @@ const MainPage = () => {
     <div>
       <Header scrollTrigger={()=> setScroll(true)}/>
       <ProductSection setScroll={{scroll, setScroll}}/>
-      <Footer/>
+      <Favourites/>
     </div>
   );
 };

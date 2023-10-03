@@ -1,24 +1,92 @@
 @use "../../styles/partials/variables";
 
 .product-section {
-  padding-top: 5.3rem;
+  padding: 5.3rem 5rem 0 5rem;
   display: flex;
+  justify-content: center;
+  font-family: variables.$font-info;
 
-  &__img {
-    margin: 0 2rem;
-    width: 50vw;
-    height: 85vh;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 3px 3px 10px variables.$colour-gunmetalGrey;
+  &__product {
+    &--img {
+      margin: 0 0rem;
+      width: 50vw;
+      height: 85vh;
+      object-fit: cover;
+    }
+    &--btn {
+      display: flex;
+      align-items: center;
+      padding: 0.8rem 2rem;
+      border-radius: 25px;
+      border: 2px solid variables.$colour-gunmetalGrey;
+      position: relative;
+      left: 1rem;
+      bottom: 4rem;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      img {
+        margin-right: 0.5rem;
+        width: 1.5rem;
+      }
+    }
   }
 
   &__details {
+    margin-left: 3rem;
+
+    &--title {
+      margin-top: 0;
+      font-size: 3rem;
+    }
     &--description {
-      margin-top: -1rem;
+      font-size: 1.3rem;
+      margin-top: -1.8rem;
     }
     &--price {
-      font-size: 1.4rem;
+      margin-top: 3rem;
+      font-size: 2rem;
     }
+    &--scents {
+      display: flex;
+      font-size: 1.3rem;
+      font-family: variables.$font-brand;
+
+      div {
+        margin: 1rem 1rem 1rem 0;
+        input {
+          width: 2rem;
+        }
+      }
+    }
+    &--availability {
+      font-size: 0.8rem;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 1rem;
+      width: 100%;
+      background-color: variables.$colour-btn;
+      border-style: none;
+      border-radius: 5px;
+      color: variables.$colour-cream;
+
+      &:hover {
+        cursor: pointer;
+        background-color: variables.$colour-btn-hover;
+      }
+    }
+  }
+
+  &__error-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: variables.$font-secondary;
+    font-size: 2rem;
   }
 }

@@ -1,4 +1,10 @@
-import { doc, getDoc, getDocs, collection } from "firebase/firestore";
+import {
+  doc,
+  getDoc,
+  getDocs,
+  updateDoc,
+  collection,
+} from "firebase/firestore";
 
 import { db } from "../config/firestore";
 
@@ -16,4 +22,26 @@ export const getCandleById = async (id) => {
     throw new Error("Document not found");
   }
   return { id: querySnapshot.id, ...querySnapshot.data() };
+};
+
+export const updateFavouriteStatus = async (id) => {
+  try {
+    const docRef = doc(db, "products", id);
+    const querySnapshot = await getDoc(docRef);
+    if (querySnapshot.exists()) {
+      if (querySnapshot.data().favourite) {
+        await updateDoc(docRef, {
+          favourite: false,
+        });
+      } else {
+        await updateDoc(docRef, {
+          favourite: true,
+        });
+      }
+    }
+    const updatedDocSnapshot = await getDoc(docRef);
+    return updatedDocSnapshot.data().favourite;
+  } catch (e) {
+    throw new Error("Document not found");
+  }
 };
