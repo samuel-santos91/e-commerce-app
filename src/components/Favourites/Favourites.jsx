@@ -1,9 +1,13 @@
-import React from 'react'
+import FavouritesList from "../../containers/FavouritesList/FavouritesList";
+import styles from "./Favourites.module.scss";
 
-const Footer = () => {
+const Favourites = () => {
   return (
-    <div>Footer</div>
-  )
-}
+    <section>
+      <h2 className={styles["section-title"]}>Favourites</h2>
+      <FavouritesList />
+    </section>
+  );
+};
 
-export default Footer
+export default Favourites;

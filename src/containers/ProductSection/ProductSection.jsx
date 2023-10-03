@@ -4,7 +4,7 @@ import CandlesList from "../CandlesList/CandlesList";
 import styles from "./ProductSection.module.scss";
 
 const ProductSection = ({ setScroll }) => {
-  const targetRef = useRef(null);
+  const targetRef = useRef(null); 
 
   if (setScroll.scroll) {
     targetRef.current.scrollIntoView();

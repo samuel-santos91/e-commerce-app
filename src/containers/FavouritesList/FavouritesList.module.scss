@@ -1,0 +1,10 @@
+.list {
+  display: flex;
+  justify-content: center;
+  overflow-x: scroll;
+
+  &__favourites {
+    margin: 5rem 0;
+   font-size: 1.5rem; 
+  }
+}

@@ -9,7 +9,7 @@ import styles from "./CandlesList.module.scss";
 import { carouselSettings } from "./carouselSettings";
 
 const CandlesList = () => {
-  const { candles } = useContext(CandlesContext);
+  const { candles } = useContext(CandlesContext); 
 
   return (
     <div className={styles["candle-list"]}>

@@ -25,9 +25,13 @@ const ProductsContextProvider = ({ children }) => {
     return candle?.scent[scentName]?.quantity;
   };
 
+  const favouritesList = (candles) => {
+    const list = candles?.filter((candle) => candle.favourite === true);
+    return list;
+  };
   return (
     <CandlesContext.Provider
-      value={{ candles, scentList, scentQuantity }}
+      value={{ candles, scentList, scentQuantity, favouritesList }}
     >
       {children}
     </CandlesContext.Provider>
