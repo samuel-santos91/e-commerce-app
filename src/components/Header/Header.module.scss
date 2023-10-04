@@ -10,7 +10,7 @@
   }
 
   &__introTitle {
-    margin-left: 5rem;
+    margin-left: 5vw;
     color: variables.$colour-cream;
     font-size: calc(0.1rem + 4vw);
     position: absolute;
@@ -27,11 +27,11 @@
     position: absolute;
     left: 0;
     bottom: 4rem;
-    margin-left: 5rem;
-    padding: 1.3rem 1.9rem;
+    margin-left: 5vw;
+    padding: calc(.4rem + 1.1vw) calc(1.1rem + 3vw);
     border-radius: 25px;
     border-style: none;
-    font-size: 0.9rem;
+    font-size: calc(.5rem + .8vw);
     color: variables.$colour-gunmetalGrey;
 
     &:hover {

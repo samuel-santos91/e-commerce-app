@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
 
+import { CandlesContext } from "../../context/ProductsContextProvider";
 import styles from "./NavBar.module.scss";
 import cart from "../../assets/icons/shopCart.png";
 
 const NavBar = () => {
+  const { setOpenCart } = useContext(CandlesContext);
+
   return (
     <nav className={styles.navbar}>
       <Link to={"/"}>
@@ -14,7 +18,11 @@ const NavBar = () => {
           LightUp
         </p>
       </Link>
-      <img className={styles["navbar__cart"]} src={cart} />
+      <img
+        onClick={() => setOpenCart(true)}
+        className={styles["navbar__cart"]}
+        src={cart}
+      />
     </nav>
   );
 };

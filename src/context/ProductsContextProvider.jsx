@@ -5,6 +5,7 @@ import { getAllCandles } from "../services/candle-service";
 export const CandlesContext = createContext(null);
 
 const ProductsContextProvider = ({ children }) => {
+  const [openCart, setOpenCart] = useState(false);
   const [candles, setCandles] = useState([]);
 
   useEffect(() => {
@@ -31,7 +32,14 @@ const ProductsContextProvider = ({ children }) => {
   };
   return (
     <CandlesContext.Provider
-      value={{ candles, scentList, scentQuantity, favouritesList }}
+      value={{
+        openCart,
+        setOpenCart,
+        candles,
+        scentList,
+        scentQuantity,
+        favouritesList,
+      }}
     >
       {children}
     </CandlesContext.Provider>
