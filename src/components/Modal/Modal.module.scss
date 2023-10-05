@@ -12,10 +12,13 @@
   }
   
   .box {
-    background-color: white;
     width: 50%;
     height: auto;
     border-radius: 15px;
+
+    @media (max-width: 900px) {
+      width: 80%;
+    }
   }
   
   .content {

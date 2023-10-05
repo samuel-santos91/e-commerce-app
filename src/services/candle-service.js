@@ -3,6 +3,8 @@ import {
   getDoc,
   getDocs,
   updateDoc,
+  addDoc,
+  deleteDoc,
   collection,
 } from "firebase/firestore";
 
@@ -44,4 +46,30 @@ export const updateFavouriteStatus = async (id) => {
   } catch (e) {
     throw new Error("Document not found");
   }
+};
+
+export const addToCart = async (data) => {
+  try {
+    const collectionRef = collection(db, "cart");
+    await addDoc(collectionRef, data);
+  } catch (e) {
+    throw new Error("Something Went Wrong");
+  }
+};
+
+export const deleteFromCart = async (id) => {
+  try {
+    console.log("here")
+    const docRef = doc(db, "cart", id);
+    await deleteDoc(docRef);
+  } catch (e) {
+    throw new Error("Document not found");
+  }
+};
+
+export const getAllCartItems = async () => {
+  const collectionRef = collection(db, "cart");
+  const querySnapshot = await getDocs(collectionRef);
+  const list = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  return list;
 };

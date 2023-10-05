@@ -119,6 +119,10 @@
         cursor: pointer;
         background-color: variables.$colour-btn-hover;
       }
+
+      &:active {
+        transform: scale(.99);
+      }
     }
   }
 

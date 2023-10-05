@@ -1,0 +1,41 @@
+@use "../../styles/partials/variables";
+
+.cart {
+  height: 50vh;
+  width: 100%;
+  height: auto;
+  background-color: variables.$colour-cream;
+  border-radius: 15px;
+
+  .checkout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__total {
+      margin: 1rem;
+      display: flex;
+      justify-content: space-between;
+      font-family: variables.$font-secondary;
+
+      &--title,
+      &--value {
+        margin: 0;
+      }
+    }
+
+    &__btn {
+      margin: 1rem;
+      padding: 0.8rem;
+      background-color: variables.$colour-btn;
+      font-family: variables.$font-info;
+      color: variables.$colour-cream;
+      border-style: none;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: variables.$colour-btn-hover;
+      }
+    }
+  }
+}

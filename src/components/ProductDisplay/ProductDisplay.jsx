@@ -4,6 +4,7 @@ import { useEffect, useState, useContext } from "react";
 import {
   getCandleById,
   updateFavouriteStatus,
+  addToCart,
 } from "../../services/candle-service";
 import { CandlesContext } from "../../context/ProductsContextProvider";
 import styles from "./ProductDisplay.module.scss";
@@ -15,6 +16,7 @@ const ProductDisplay = () => {
   const { id } = useParams();
 
   const [candle, setCandle] = useState(null);
+  const [scent, setScent] = useState(null);
   const [quantityOfScent, setQuantityOfScent] = useState(null);
   const [favourite, setFavourite] = useState(false);
   const [error, setError] = useState(null);
@@ -30,6 +32,7 @@ const ProductDisplay = () => {
 
   const scentHandler = (e) => {
     const chosenScent = e.target.value;
+    setScent(chosenScent);
     const quantity = scentQuantity(chosenScent, candle);
     setQuantityOfScent(quantity);
   };
@@ -38,6 +41,21 @@ const ProductDisplay = () => {
     updateFavouriteStatus(id)
       .then((favourite) => setFavourite(favourite))
       .catch((e) => console.log(e));
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    const { id, name, description, imageLink, price } = candle;
+    const chosenCandle = {
+      idRef: id,
+      name: name,
+      description: description,
+      imageLink: imageLink,
+      price: price,
+      scent: scent,
+      quantity: quantityOfScent,
+    };
+    addToCart(chosenCandle)
   };
 
   return (
@@ -74,7 +92,7 @@ const ProductDisplay = () => {
               ${candle.price}
             </p>
 
-            <form>
+            <form onSubmit={submitHandler}>
               <div className={styles["product-section__details--scents"]}>
                 {candle &&
                   scentList(candle.scent).map((scent) => (

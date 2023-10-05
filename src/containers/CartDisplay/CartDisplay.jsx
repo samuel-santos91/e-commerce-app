@@ -1,13 +1,11 @@
 import Modal from "../../components/Modal/Modal";
-import Cart from "../../components/Cart/Cart";
+import Cart from "../Cart/Cart";
 
 const CartDisplay = () => {
   return (
-    <div>
-      <Modal>
-        <Cart />
-      </Modal>
-    </div>
+    <Modal>
+      <Cart />
+    </Modal>
   );
 };
 
