@@ -51,6 +51,12 @@ export const updateFavouriteStatus = async (id) => {
 export const addToCart = async (data) => {
   try {
     const collectionRef = collection(db, "cart");
+    const querySnapshot = await getDocs(collectionRef);
+    const existingData = querySnapshot.docs.map((doc) => doc.data());
+    const containCandle = existingData.some(
+      (candle) => candle.idRef === data.idRef && candle.scent === data.scent
+    );
+    if (containCandle) return;
     await addDoc(collectionRef, data);
   } catch (e) {
     throw new Error("Something Went Wrong");
@@ -59,7 +65,6 @@ export const addToCart = async (data) => {
 
 export const deleteFromCart = async (id) => {
   try {
-    console.log("here")
     const docRef = doc(db, "cart", id);
     await deleteDoc(docRef);
   } catch (e) {

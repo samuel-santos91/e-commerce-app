@@ -1,18 +1,23 @@
 import { createContext, useEffect, useState } from "react";
 
-import { getAllCandles } from "../services/candle-service";
+import { getAllCandles, getAllCartItems } from "../services/candle-service";
 
 export const CandlesContext = createContext(null);
 
 const ProductsContextProvider = ({ children }) => {
   const [openCart, setOpenCart] = useState(false);
   const [candles, setCandles] = useState([]);
+  const [cartCandles, setCartCandles] = useState([]);
 
   useEffect(() => {
     getAllCandles()
       .then((candles) => setCandles(candles))
       .catch((e) => console.log(e));
-  }, []);
+
+    getAllCartItems()
+      .then((list) => setCartCandles(list))
+      .catch((e) => console.log(e));
+  }, [candles, cartCandles]);
 
   const scentList = (scents) => {
     let scentListArray = [];
@@ -30,12 +35,14 @@ const ProductsContextProvider = ({ children }) => {
     const list = candles?.filter((candle) => candle.favourite === true);
     return list;
   };
+
   return (
     <CandlesContext.Provider
       value={{
         openCart,
         setOpenCart,
         candles,
+        cartCandles,
         scentList,
         scentQuantity,
         favouritesList,

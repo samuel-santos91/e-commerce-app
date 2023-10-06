@@ -6,7 +6,7 @@ import styles from "./NavBar.module.scss";
 import cart from "../../assets/icons/shopCart.png";
 
 const NavBar = () => {
-  const { setOpenCart } = useContext(CandlesContext);
+  const { cartCandles, setOpenCart } = useContext(CandlesContext);
 
   return (
     <nav className={styles.navbar}>
@@ -23,6 +23,9 @@ const NavBar = () => {
         className={styles["navbar__cart"]}
         src={cart}
       />
+      {cartCandles.length !== 0 && (
+        <div className={styles["navbar__add-to-cart"]} />
+      )}
     </nav>
   );
 };

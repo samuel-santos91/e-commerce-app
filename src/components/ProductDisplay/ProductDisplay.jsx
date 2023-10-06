@@ -53,9 +53,12 @@ const ProductDisplay = () => {
       imageLink: imageLink,
       price: price,
       scent: scent,
-      quantity: quantityOfScent,
+      quantityInStock: quantityOfScent,
+      quantityChosen: 1,
     };
-    addToCart(chosenCandle)
+    if (scent) {
+      addToCart(chosenCandle);
+    }
   };
 
   return (

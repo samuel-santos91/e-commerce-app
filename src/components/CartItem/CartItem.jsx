@@ -9,7 +9,8 @@ const CartItem = ({
   imageLink,
   price,
   scent,
-  quantity,
+  quantityInStock,
+  quantityChosen,
 }) => {
   const changeQuantityHadler = (e) => {
     if (e.target.innerText === "+") {
@@ -22,7 +23,13 @@ const CartItem = ({
   return (
     <article>
       <div className={styles["cart-item"]}>
-        <img className={styles["cart-item__img"]} src={imageLink} alt="img" />
+        <section className={styles["cart-item__img-container"]}>
+          <img
+            className={styles["cart-item__img-container--img"]}
+            src={imageLink}
+            alt="img"
+          />
+        </section>
 
         <section className={styles["cart-item__details"]}>
           <div className={styles.item}>
@@ -33,9 +40,7 @@ const CartItem = ({
               </p>
             </div>
             <img
-              onClick={() => {
-                console.log(id)
-                deleteFromCart(id)}}
+              onClick={() => deleteFromCart(id)}
               className={styles["item__remove"]}
               src={deleteIcon}
               alt="delete icon"
@@ -51,7 +56,7 @@ const CartItem = ({
                 -
               </p>
               <p className={styles["item-volume__quantity--value"]}>
-                {quantity}
+                {quantityChosen}
               </p>
               <p
                 onClick={changeQuantityHadler}

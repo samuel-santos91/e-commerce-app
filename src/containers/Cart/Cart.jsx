@@ -1,24 +1,16 @@
-import { useState, useEffect } from "react";
+import { useContext } from "react";
 
-import { getAllCartItems } from "../../services/candle-service";
+import { CandlesContext } from "../../context/ProductsContextProvider";
 import CartItem from "../../components/CartItem/CartItem";
 import styles from "./Cart.module.scss";
 
 const Cart = () => {
-  const [cartList, setCartList] = useState(null);
-
-  useEffect(() => {
-    getAllCartItems()
-      .then((candles) => setCartList(candles))
-      .catch((e) => console.log(e));
-  }, []);
-
-  console.log(cartList)
+  const {cartCandles} = useContext(CandlesContext);
 
   return (
     <div className={styles.cart}>
-      {cartList &&
-        cartList.map((data) => (
+      {cartCandles &&
+        cartCandles.map((data) => (
           <CartItem
             key={data.id}
             id={data.id}
@@ -27,7 +19,8 @@ const Cart = () => {
             imageLink={data.imageLink}
             price={data.price}
             scent={data.scent}
-            quantity={data.quantity}
+            quantityInStock={data.quantityInStock}
+            quantityChosen={data.quantityChosen}
           />
         ))}
 
