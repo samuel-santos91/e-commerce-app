@@ -1,4 +1,10 @@
-import { deleteFromCart } from "../../services/candle-service";
+import { useContext } from "react";
+
+import { CandlesContext } from "../../context/ProductsContextProvider";
+import {
+  deleteFromCart,
+  updateChosenQuantity,
+} from "../../services/candle-service";
 import deleteIcon from "../../assets/icons/delete.png";
 import styles from "./CartItem.module.scss";
 
@@ -12,11 +18,12 @@ const CartItem = ({
   quantityInStock,
   quantityChosen,
 }) => {
+  const { allowQuantityChange } = useContext(CandlesContext);
+
   const changeQuantityHadler = (e) => {
-    if (e.target.innerText === "+") {
-      console.log("plus");
-    } else {
-      console.log("minus");
+    const symbol = e.target.innerText;
+    if (allowQuantityChange(symbol, quantityChosen, quantityInStock)) {
+      updateChosenQuantity(id, symbol);
     }
   };
 
@@ -65,7 +72,7 @@ const CartItem = ({
                 +
               </p>
             </div>
-            <p className={styles["item-volume__price"]}>${price}</p>
+            <p className={styles["item-volume__price"]}>${(price * quantityChosen).toFixed(2)}</p>
           </div>
         </section>
       </div>

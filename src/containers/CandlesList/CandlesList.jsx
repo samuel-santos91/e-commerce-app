@@ -13,7 +13,7 @@ const CandlesList = () => {
 
   return (
     <div className={styles["candle-list"]}>
-      <Slider className={styles["candle-list__slider"]} {...carouselSettings}>
+      {candles.length !== 0 ? <Slider className={styles["candle-list__slider"]} {...carouselSettings}>
         {candles.map((candle) => (
           <CandleCard
             key={candle.id}
@@ -22,7 +22,7 @@ const CandlesList = () => {
             image={candle.imageLink}
           />
         ))}
-      </Slider>
+      </Slider> : <p className={styles["candle-list__error"]}>Something Went Wrong</p>}
     </div>
   );
 };

@@ -2,8 +2,11 @@
   display: flex;
   overflow-x: scroll;
 
-  &__favourites {
+  &__no-items { 
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
     margin: 5rem 0;
-   font-size: 1.5rem; 
+    font-size: 1.5rem;
   }
 }

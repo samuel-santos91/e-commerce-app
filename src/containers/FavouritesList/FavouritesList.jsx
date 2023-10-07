@@ -25,7 +25,7 @@ const FavouritesList = () => {
           image={candle.imageLink}
           style={"small"}
         />
-      )) : <p className={styles["list__favourites"]}>No items on your list of favourites</p>}
+      )) : <p className={styles["list__no-items"]}>No items on your list of favourites</p>} 
     </section>
   );
 };

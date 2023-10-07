@@ -16,7 +16,7 @@ const NavBar = () => {
           className={styles["navbar__brand"]}
         >
           LightUp
-        </p>
+        </p> 
       </Link>
       <img
         onClick={() => setOpenCart(true)}

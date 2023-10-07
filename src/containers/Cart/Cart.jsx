@@ -5,11 +5,11 @@ import CartItem from "../../components/CartItem/CartItem";
 import styles from "./Cart.module.scss";
 
 const Cart = () => {
-  const {cartCandles} = useContext(CandlesContext);
+  const { cartCandles, cartTotalSum } = useContext(CandlesContext);
 
   return (
     <div className={styles.cart}>
-      {cartCandles &&
+      {cartCandles.length !== 0 ? (
         cartCandles.map((data) => (
           <CartItem
             key={data.id}
@@ -22,17 +22,24 @@ const Cart = () => {
             quantityInStock={data.quantityInStock}
             quantityChosen={data.quantityChosen}
           />
-        ))}
+        ))
+      ) : (
+        <p className={styles["cart__empty"]}>Your Cart Is Still Empty</p>
+      )}
 
-      <section className={styles.checkout}>
-        <div className={styles["checkout__total"]}>
-          <p className={styles["checkout__total--title"]}>Total</p>
-          <p className={styles["checkout__total--value"]}>$109.99</p>
-        </div>
-        <button className={styles["checkout__btn"]} type="button">
-          Check Out
-        </button>
-      </section>
+      {cartCandles.length !== 0 && (
+        <section className={styles.checkout}>
+          <div className={styles["checkout__total"]}>
+            <p className={styles["checkout__total--title"]}>Total</p>
+            <p className={styles["checkout__total--value"]}>
+              ${cartTotalSum(cartCandles).toFixed(2)}
+            </p>
+          </div>
+          <button className={styles["checkout__btn"]} type="button">
+            Check Out
+          </button>
+        </section>
+      )}
     </div>
   );
 };

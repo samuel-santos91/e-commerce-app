@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 
-import { getAllCandles, getAllCartItems } from "../services/candle-service";
+import { getAllCandles } from "../services/candle-service";
 
 export const CandlesContext = createContext(null);
 
@@ -13,11 +13,7 @@ const ProductsContextProvider = ({ children }) => {
     getAllCandles()
       .then((candles) => setCandles(candles))
       .catch((e) => console.log(e));
-
-    getAllCartItems()
-      .then((list) => setCartCandles(list))
-      .catch((e) => console.log(e));
-  }, [candles, cartCandles]);
+  }, []);
 
   const scentList = (scents) => {
     let scentListArray = [];
@@ -36,6 +32,21 @@ const ProductsContextProvider = ({ children }) => {
     return list;
   };
 
+  const allowQuantityChange = (symbol, quantityChosen, quantityInStock) => {
+    if (symbol === "+" && quantityChosen === quantityInStock) {
+      return false;
+    } else if (symbol === "-" && quantityChosen === 0) {
+      return false;
+    } else return true;
+  };
+
+  const cartTotalSum = (cartCandleArray) => {
+    return cartCandleArray.reduce((accumulator, currentItem) => {
+      const itemTotal = currentItem.price * currentItem.quantityChosen;
+      return accumulator + itemTotal;
+    }, 0);
+  };
+
   return (
     <CandlesContext.Provider
       value={{
@@ -43,9 +54,12 @@ const ProductsContextProvider = ({ children }) => {
         setOpenCart,
         candles,
         cartCandles,
+        setCartCandles,
         scentList,
         scentQuantity,
         favouritesList,
+        allowQuantityChange,
+        cartTotalSum,
       }}
     >
       {children}
