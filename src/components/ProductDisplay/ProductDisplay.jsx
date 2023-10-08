@@ -5,7 +5,6 @@ import {
   getCandleById,
   updateFavouriteStatus,
   addToCart,
-  subscribeToCartItems,
 } from "../../services/candle-service";
 import { CandlesContext } from "../../context/ProductsContextProvider";
 import styles from "./ProductDisplay.module.scss";
@@ -13,7 +12,7 @@ import favouriteIcon from "../../assets/icons/favourite.png";
 import unfavouriteIcon from "../../assets/icons/unfavourite.png";
 
 const ProductDisplay = () => {
-  const { scentList, scentQuantity, setCartCandles } = useContext(CandlesContext);
+  const { scentList, scentQuantity } = useContext(CandlesContext);
   const { id } = useParams();
 
   const [candle, setCandle] = useState(null);
@@ -21,11 +20,6 @@ const ProductDisplay = () => {
   const [quantityOfScent, setQuantityOfScent] = useState(null);
   const [favourite, setFavourite] = useState(false);
   const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const unsub = subscribeToCartItems(setCartCandles);
-    return () => unsub();
-  }, []);
 
   useEffect(() => {
     getCandleById(id)

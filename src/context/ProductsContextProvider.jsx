@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 
-import { getAllCandles } from "../services/candle-service";
+import { getAllCandles, subscribeToCartItems } from "../services/candle-service";
 
 export const CandlesContext = createContext(null);
 
@@ -13,6 +13,9 @@ const ProductsContextProvider = ({ children }) => {
     getAllCandles()
       .then((candles) => setCandles(candles))
       .catch((e) => console.log(e));
+
+    const unsub = subscribeToCartItems(setCartCandles);
+    return () => unsub();
   }, []);
 
   const scentList = (scents) => {
@@ -53,6 +56,7 @@ const ProductsContextProvider = ({ children }) => {
         openCart,
         setOpenCart,
         candles,
+        setCandles,
         cartCandles,
         setCartCandles,
         scentList,

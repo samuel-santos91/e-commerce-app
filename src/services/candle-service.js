@@ -76,6 +76,28 @@ export const updateChosenQuantity = async (id, symbol) => {
   }
 };
 
+export const updateQuantityInStock = async (
+  id,
+  scentChosen,
+  quantityChosen,
+  quantityInStock
+) => {
+  try {
+    const docRef = doc(db, "products", id);
+    const querySnapshot = await getDoc(docRef);
+    if (querySnapshot.exists()) {
+      await updateDoc(docRef, {
+        scent: {
+          ...querySnapshot.data().scent,
+          [scentChosen]: { quantity: quantityInStock - quantityChosen },
+        },
+      });
+    }
+  } catch (e) {
+    throw new Error("Document not found");
+  }
+};
+
 export const addToCart = async (data) => {
   try {
     const collectionRef = collection(db, "cart");
@@ -112,3 +134,4 @@ export const subscribeToCartItems = (callback) => {
 
   return unsubscribe;
 };
+

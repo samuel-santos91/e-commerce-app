@@ -1,11 +1,30 @@
 import { useContext } from "react";
+import { useNavigate } from 'react-router-dom';
 
+import { updateQuantityInStock, deleteFromCart } from "../../services/candle-service";
 import { CandlesContext } from "../../context/ProductsContextProvider";
 import CartItem from "../../components/CartItem/CartItem";
 import styles from "./Cart.module.scss";
 
 const Cart = () => {
-  const { cartCandles, cartTotalSum } = useContext(CandlesContext);
+  const { cartCandles, cartTotalSum, setOpenCart } = useContext(CandlesContext);
+  const navigate = useNavigate();
+
+  const checkoutHandler = () => {
+    cartCandles.map((candle) =>
+      updateQuantityInStock(
+        candle.idRef,
+        candle.scent,
+        candle.quantityChosen,
+        candle.quantityInStock
+      )
+    );
+    cartCandles.map((candle)=> {
+      deleteFromCart(candle.id)
+    })
+    setOpenCart(false);
+    navigate("/completed")
+  };
 
   return (
     <div className={styles.cart}>
@@ -35,7 +54,11 @@ const Cart = () => {
               ${cartTotalSum(cartCandles).toFixed(2)}
             </p>
           </div>
-          <button className={styles["checkout__btn"]} type="button">
+          <button
+            onClick={checkoutHandler}
+            className={styles["checkout__btn"]}
+            type="button"
+          >
             Check Out
           </button>
         </section>

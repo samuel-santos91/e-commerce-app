@@ -29,15 +29,15 @@
     bottom: 4rem;
     margin-left: 5vw;
     padding: calc(.4rem + 1.1vw) calc(1.1rem + 3vw);
+    background-color: variables.$colour-btn;
     border-radius: 25px;
     border-style: none;
     font-size: calc(.5rem + .8vw);
-    color: variables.$colour-gunmetalGrey;
+    color: variables.$colour-cream;
 
     &:hover {
         cursor: pointer;
-        color: variables.$colour-cream;
-        background-color: variables.$colour-gunmetalGrey;
+        background-color: variables.$colour-btn-hover;
     }
   }
 }
