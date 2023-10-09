@@ -11,7 +11,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: rgb(18, 18, 18);
+  background-image: url("../../assets/images/purchase-finished-bg.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: black;
 
   &__img {
     width: 30%;
