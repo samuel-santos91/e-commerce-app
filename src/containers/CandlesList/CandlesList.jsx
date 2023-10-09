@@ -1,5 +1,7 @@
 import { useContext } from "react";
-import Carousel from "nuka-carousel";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import { CandlesContext } from "../../context/ProductsContextProvider";
 import CandleCard from "../../components/CandleCard/CandleCard";
@@ -12,20 +14,17 @@ const CandlesList = () => {
   return (
     <div className={styles["candle-list"]}>
       {featuredList(candles)?.length !== 0 ? (
-        <Carousel
-          className={styles["candle-list__carousel"]}
-          {...carouselSettings}
-        >
+        <Slider className={styles["candle-list__slider"]} {...carouselSettings}>
           {featuredList(candles)?.map((candle) => (
             <CandleCard
               key={candle.id}
               id={candle.id}
               title={candle.name}
               image={candle.imageLink}
-              style={"featured"}
+              featStyle={"featured-display"}
             />
           ))}
-        </Carousel>
+        </Slider>
       ) : (
         <p className={styles["candle-list__error"]}>Something Went Wrong</p>
       )}

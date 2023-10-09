@@ -15,8 +15,6 @@ const FavouritesList = () => {
       .catch((e) => console.log(e));
   }, []);
 
-  console.log(candles)
-
   return (
     <section className={styles.list}>
       {listOfFavourites ? listOfFavourites.map((candle) => (

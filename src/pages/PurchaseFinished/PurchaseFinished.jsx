@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import image from "../../assets/images/completed.png";
-import styles from "./PurchaseFinished.module.scss";
+import styles from "./PurchaseFinished.module.scss"; 
 
 const PurchaseFinished = () => {
   return (

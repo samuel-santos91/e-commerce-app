@@ -1,10 +1,20 @@
 export const carouselSettings = {
   slidesToShow: 3,
   autoplay: true,
-  autoplayInterval: 2000,
-  defaultControlsConfig: {
-    nextButtonClassName: "nextButtonClassName",
-    prevButtonClassName: "prevButtonClassName",
-    containerClassName: "containerClassName",
-  },
+  autoplaySpeed: 3000,
+  speed: 1000,
+  responsive: [
+    {
+      breakpoint: 800,
+      settings: {
+        slidesToShow: 2,
+      },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+      },
+    },
+  ],
 };
