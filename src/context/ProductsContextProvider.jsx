@@ -1,6 +1,9 @@
 import { createContext, useEffect, useState } from "react";
 
-import { getAllCandles, subscribeToCartItems } from "../services/candle-service";
+import {
+  getAllCandles,
+  subscribeToCartItems,
+} from "../services/candle-service";
 
 export const CandlesContext = createContext(null);
 
@@ -28,6 +31,11 @@ const ProductsContextProvider = ({ children }) => {
 
   const scentQuantity = (scentName, candle) => {
     return candle?.scent[scentName]?.quantity;
+  };
+
+  const featuredList = (candles) => {
+    const list = candles?.filter((candle) => candle.featured === true);
+    return list;
   };
 
   const favouritesList = (candles) => {
@@ -61,6 +69,7 @@ const ProductsContextProvider = ({ children }) => {
         setCartCandles,
         scentList,
         scentQuantity,
+        featuredList,
         favouritesList,
         allowQuantityChange,
         cartTotalSum,

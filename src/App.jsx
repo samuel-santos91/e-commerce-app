@@ -1,10 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import ProductsContextProvider from "./context/ProductsContextProvider";
 import NavBar from "./components/NavBar/NavBar";
 import MainPage from "./pages/MainPage/MainPage";
+import AllProducts from "./pages/AllProducts/AllProducts";
 import ProductDetailPage from "./pages/ProductDetailPage/ProductDetailPage";
-import ProductsContextProvider from "./context/ProductsContextProvider";
-import PurchaseFinished from "./components/PurchaseFinished/PurchaseFinished";
+import PurchaseFinished from "./pages/PurchaseFinished/PurchaseFinished";
 import "./App.css";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <NavBar />
           <Routes>
             <Route path="/" element={<MainPage />} />
+            <Route path="/products" element={<AllProducts />} />
             <Route path="/product/:id" element={<ProductDetailPage />} />
             <Route path="/completed" element={<PurchaseFinished />} />
           </Routes>

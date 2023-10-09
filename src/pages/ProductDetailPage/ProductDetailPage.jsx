@@ -10,7 +10,7 @@ const ProductDetailPage = () => {
   return (
     <main>
       <ProductDisplay />
-      {openCart && <CartDisplay />} 
+      {openCart && <CartDisplay />}  
     </main>
   );
 };

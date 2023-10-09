@@ -6,8 +6,8 @@ import styles from "./FavouritesList.module.scss";
 import { getAllCandles } from "../../services/candle-service";
 
 const FavouritesList = () => {
-  const { favouritesList } = useContext(CandlesContext);
-  const [listOfFavourites, setListOfFavourites] = useState([]);
+  const { favouritesList, candles } = useContext(CandlesContext);
+  const [listOfFavourites, setListOfFavourites] = useState(null);
 
   useEffect(() => {
     getAllCandles()
@@ -15,15 +15,17 @@ const FavouritesList = () => {
       .catch((e) => console.log(e));
   }, []);
 
+  console.log(candles)
+
   return (
     <section className={styles.list}>
-      {listOfFavourites.length !== 0 ? listOfFavourites.map((candle) => (
+      {listOfFavourites ? listOfFavourites.map((candle) => (
         <CandleCard
           key={candle.id}
           id={candle.id}
           title={candle.name}
           image={candle.imageLink}
-          style={"small"}
+          style={"favourite"}
         />
       )) : <p className={styles["list__no-items"]}>No items on your list of favourites</p>} 
     </section>

@@ -6,7 +6,7 @@ const Favourites = () => {
     <section>
       <h2 className={styles["section-title"]}>Favourites</h2>
       <FavouritesList />
-    </section>
+    </section> 
   );
 };
 

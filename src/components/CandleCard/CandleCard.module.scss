@@ -1,6 +1,37 @@
 @use "../../styles/partials/variables";
 
-.card {
+.main-display {
+  margin: 1rem;
+
+  &__img {
+    width: 23rem;
+    height: 25rem;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.005);
+      box-shadow: 2px 2px 10px variables.$colour-gunmetalGrey;
+    }
+
+    @media (max-width: 460px) {
+      width: 85vw;
+    }
+  }
+
+  &__title {
+    position: relative;
+    top: -4rem;
+    font-size: 1.5rem;
+    text-align: center;
+    color: variables.$colour-cream;
+    text-shadow: 2px 2px 2px variables.$colour-gunmetalGrey;
+  }
+}
+
+.featured {
   height: 35rem;
 
   &__img {
@@ -26,7 +57,7 @@
   }
 }
 
-.small-card {
+.favourite {
   margin: 1rem;
 
   &__img {
@@ -52,3 +83,5 @@
     text-shadow: 2px 2px 2px variables.$colour-gunmetalGrey;
   }
 }
+
+

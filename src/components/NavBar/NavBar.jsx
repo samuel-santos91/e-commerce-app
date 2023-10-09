@@ -10,13 +10,21 @@ const NavBar = () => {
 
   return (
     <nav className={styles.navbar}>
+      <Link to={"/products"}>
+        <p
+          onClick={() => window.scrollTo(0, 0)}
+          className={styles["navbar__products"]}
+        >
+          products
+        </p>
+      </Link>
       <Link to={"/"}>
         <p
           onClick={() => window.scrollTo(0, 0)}
           className={styles["navbar__brand"]}
         >
           LightUp
-        </p> 
+        </p>
       </Link>
       <img
         onClick={() => setOpenCart(true)}

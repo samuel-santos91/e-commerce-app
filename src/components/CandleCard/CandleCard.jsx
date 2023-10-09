@@ -4,25 +4,11 @@ import styles from "./CandleCard.module.scss";
 
 const CandleCard = ({ id, title, image, style }) => {
   return (
-    <article className={style === "small" ? styles["small-card"] : styles.card}>
+    <article className={styles[style]}>
       <Link to={`/product/${id}`}>
-        <img
-          className={
-            style === "small" ? styles["small-card__img"] : styles["card__img"]
-          }
-          src={image}
-          alt="candle"
-        />
+        <img className={styles[`${style}__img`]} src={image} alt="candle" />
       </Link>
-      <p
-        className={
-          style === "small"
-            ? styles["small-card__title"]
-            : styles["card__title"]
-        }
-      >
-        {title}
-      </p>
+      <p className={styles[`${style}__title`]}>{title}</p>
     </article>
   );
 };

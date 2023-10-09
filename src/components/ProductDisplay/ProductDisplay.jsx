@@ -57,6 +57,7 @@ const ProductDisplay = () => {
       quantityChosen: 1,
     };
     if (scent) {
+      if(quantityOfScent === 0) return;
       addToCart(chosenCandle);
     }
   };
