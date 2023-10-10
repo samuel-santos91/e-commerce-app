@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <ProductsContextProvider>
-        <BrowserRouter>
+        <BrowserRouter basename={"/e-commerce-app"}>
           <NavBar />
           <Routes>
             <Route path="/" element={<MainPage />} />
