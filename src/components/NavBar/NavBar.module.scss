@@ -1,0 +1,64 @@
+@use "../../styles/partials/variables";
+
+.navbar {
+  &__products {
+    position: fixed;
+    margin: 1.5rem;
+    color: variables.$colour-cream;
+    text-shadow: 2px 2px 2px variables.$colour-gunmetalGrey;
+    font-family: variables.$font-info;
+    font-size: 1.1rem;
+    z-index: 20; 
+
+    &:hover {
+      cursor: pointer;
+      color: variables.$colour-gunmetalGrey;
+      text-shadow: 2px 2px 2px variables.$colour-pewter;
+    }
+  }
+
+  &__brand {
+    margin: 1rem;
+    font-size: 2rem;
+    color: variables.$colour-pewter;
+    text-shadow: 2px 2px 2px variables.$colour-gunmetalGrey;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-65%);
+    z-index: 20;
+
+    &:hover {
+      cursor: pointer;
+      color: variables.$colour-gunmetalGrey;
+      text-shadow: 2px 2px 2px variables.$colour-pewter;
+    }
+  }
+
+  &__cart {
+    margin: 1rem 0.5rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    position: fixed;
+    right: 0.5rem;
+    width: 1.3rem;
+    transition: transform 0.2s ease-in-out;
+    z-index: 20;
+    background-color: variables.$colour-gunmetalGrey;
+
+    &:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+  }
+
+  &__add-to-cart {
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    background-color: rgb(181, 40, 40);
+    position: fixed;
+    right: 1rem;
+    top: 1rem;
+    z-index: 20;
+  }
+}

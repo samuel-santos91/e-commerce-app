@@ -1,0 +1,101 @@
+@use "../../styles/partials/variables";
+
+.cart-item {
+  padding: 1rem;
+  padding-top: 0;
+  display: flex;
+  align-items: center;
+  font-family: variables.$font-secondary;
+
+  &__img-container {
+    margin-right: 0.7rem;
+    width: 8rem;
+    height: 5rem;
+
+    &--img {
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+      object-fit: cover;
+    }
+  }
+
+  &__details {
+    margin-top: 1rem;
+    width: 100%;
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+
+      &__info {
+        &--title {
+          margin: 0;
+        }
+        &--description {
+          margin: 0.3rem 0;
+          font-size: 0.8rem;
+          font-family: variables.$font-info;
+        }
+        @media (max-width: 900px) {
+          font-size: 0.7rem;
+        }
+      }
+
+      &__remove {
+        width: 1.5rem;
+        height: 1.3rem;
+
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    .item-volume {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.3rem;
+
+      &__quantity {
+        display: flex;
+        align-items: center;
+        font-family: variables.$font-info;
+
+        &--control {
+          display: flex;
+          justify-content: center;
+          align-items: flex-end;
+          margin: 0 0.5rem;
+          width: 1.4rem;
+          height: 1.4rem;
+          border-radius: 50%;
+          color: variables.$colour-cream;
+          font-size: 1.3rem;
+          background-color: variables.$colour-btn;
+
+          &:hover {
+            cursor: pointer;
+            background-color: variables.$colour-btn-hover;
+          }
+          &:active {
+            transform: scale(0.9);
+          }
+        }
+      }
+
+      &__price {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+.line {
+  margin: auto;
+  width: 90%;
+  border: 0.4px solid rgb(196, 196, 196);
+  position: relative;
+  top: -1rem;
+}

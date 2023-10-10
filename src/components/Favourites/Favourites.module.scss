@@ -1,0 +1,9 @@
+@use "../../styles/partials/variables";
+
+.section-title {
+  margin: 4rem 4rem 2rem 2rem;
+  text-align: left;
+  font-size: 2.4rem;
+  font-family: variables.$font-secondary;
+  color: variables.$colour-gunmetalGrey;
+}

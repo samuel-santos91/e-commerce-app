@@ -1,0 +1,12 @@
+.candle-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 113rem;
+    margin: auto;
+
+  &__error {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+}
