@@ -17,7 +17,7 @@ function App() {
           <Routes>
             <Route path="e-commerce-app/" element={<MainPage />} />
             <Route path="e-commerce-app/products" element={<AllProducts />} />
-            <Route path="e-commerce-app/product/:id" element={<ProductDetailPage />} />
+            <Route path="/product/:id" element={<ProductDetailPage />} />
             <Route path="e-commerce-app/completed" element={<PurchaseFinished />} />
           </Routes>
         </BrowserRouter>
