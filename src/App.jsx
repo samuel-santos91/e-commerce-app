@@ -15,7 +15,7 @@ function App() {
         <BrowserRouter>
           <NavBar />
           <Routes>
-            <Route path="e-commerce-app/" element={<MainPage />} />
+            <Route path="/" element={<MainPage />} />
             <Route path="/products" element={<AllProducts />} />
             <Route path="/product/:id" element={<ProductDetailPage />} />
             <Route path="/completed" element={<PurchaseFinished />} />
