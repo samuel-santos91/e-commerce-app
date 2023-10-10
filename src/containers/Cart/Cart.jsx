@@ -23,7 +23,7 @@ const Cart = () => {
       deleteFromCart(candle.id)
     })
     setOpenCart(false);
-    navigate("e-commerce-app/completed")
+    navigate("/completed")
   };
 
   return (
