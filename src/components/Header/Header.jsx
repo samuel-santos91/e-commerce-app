@@ -18,7 +18,7 @@ const Header = ({scrollTrigger}) => {
       </h1>
 
       <button onClick={()=> scrollTrigger()} className={styles["header__btn"]} type="button">
-        See Products
+        See Featured
       </button>
     </header>
   );
