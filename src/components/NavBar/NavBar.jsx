@@ -18,7 +18,7 @@ const NavBar = () => {
           products
         </p>
       </Link>
-      <Link to={"/"}>
+      <Link to={"e-commerce-app/"}>
         <p
           onClick={() => window.scrollTo(0, 0)}
           className={styles["navbar__brand"]}
