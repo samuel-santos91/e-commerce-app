@@ -6,7 +6,7 @@ import styles from "./FavouritesList.module.scss";
 import { getAllCandles } from "../../services/candle-service";
 
 const FavouritesList = () => {
-  const { favouritesList, candles } = useContext(CandlesContext);
+  const { favouritesList } = useContext(CandlesContext);
   const [listOfFavourites, setListOfFavourites] = useState(null);
 
   useEffect(() => {
