@@ -10,7 +10,7 @@ const NavBar = () => {
 
   return (
     <nav className={styles.navbar}>
-      <Link to={"e-commerce-app/products"}> 
+      <Link to={"/products"}> 
         <p
           onClick={() => window.scrollTo(0, 0)}
           className={styles["navbar__products"]}
@@ -18,7 +18,7 @@ const NavBar = () => {
           products
         </p>
       </Link>
-      <Link to={"e-commerce-app/"}>
+      <Link to={"/"}>
         <p
           onClick={() => window.scrollTo(0, 0)}
           className={styles["navbar__brand"]}
