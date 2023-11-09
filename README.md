@@ -1,4 +1,5 @@
 # e-commerce-app
+Live Version: https://samuel-santos91.github.io/e-commerce-app/
 
 ## Description 
 * This app is a fake e-commerce of candles;
