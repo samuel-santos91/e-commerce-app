@@ -1,27 +1,18 @@
 # e-commerce-app
-Live Version: https://samuel-santos91.github.io/e-commerce-app/
+## Live Version
+Link: https://samuel-santos91.github.io/e-commerce-app/
 
 ## Description 
-* This app is a fake e-commerce of candles;
-* Made with React.js and styled with Sass.
-
-## About
-* There are five different pages in this app:
-  * Main page;
-  * All products page;
-  * Single product page;
-  * Cart;
-  * End of purchase page;
-* The main page display the featured candles and also the ones that were favourited;
-* When clicking in one of the candles, you are taken to the product page:
-  * You can choose amongst the different scents and add to cart;
-* In the cart section you can increase and decrease the quantity and go to checkout. <br><br>
-
-## Firebase/Firestore
-The app uses an Firestore as the database of all the displayed candles and candles added to cart.<br><br>
+This app is a mock e-commerce of candles;
+### Purpose
+* Implement <strong>Cloud Firestore</strong>(NoSQL database)
+* Implement REST API to fetch the product data
+### Tech Stack
+* React.js
+* Sass
+* Firestore - as the database
 
 ## Preview
-
 ### Landing page
 <img width="500" alt="Screenshot 2023-10-09 at 22 30 05" src="https://github.com/samuel-santos91/e-commerce-app/assets/107240729/9fe8dc63-eb19-45d7-8a3b-18ec8f342305">
 
@@ -43,10 +34,28 @@ The app uses an Firestore as the database of all the displayed candles and candl
 ### End checkout
 <img width="500" alt="Screenshot 2023-10-09 at 23 01 18" src="https://github.com/samuel-santos91/e-commerce-app/assets/107240729/b978efcf-7088-41e8-b2ca-26b818086746">
 
-## Built with Vite React.js
+## About
+### Sections
+* There are five different pages in this app:
+  * Main page;
+  * All products page;
+  * Single product page;
+  * Cart;
+  * End of purchase page;
+* The main page display the featured candles and also the ones that were favourited;
+* In the product page you can choose amongst the different scents and add to cart;
+* In the cart section you can increase and decrease the quantity and go to checkout.
+### Features
+* The featured products on the main page are displayed in a caroussel
+* You can favourite any product. In doing so, it will be displayed in the main page
+* When clicking on the checkout you are redirected to the End of Purchase page, and the stock of that product is decrease by one
+
+## Firebase/Firestore
+The app uses Cloud Firestore as the database. It is organised into 2 different collections:
+* The displayed candles;
+* and candles added to cart.
 
 ## Prerequisites
-
 ### Install Node JS
 Refer to https://nodejs.org/en/ to install nodejs
 
